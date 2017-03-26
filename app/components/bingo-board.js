@@ -14,9 +14,6 @@ export default Component.extend({
     }
     return rows;
   }),
-  lookupSpeaker(id) {
-    debugger;
-  },
   actions: {
     spaceClicked(bingoTargetId) {
       this.set('pickingTarget', bingoTargetId);
