@@ -4,6 +4,7 @@ const { Component, computed, get, inject } = Ember;
 
 export default Component.extend({
   game: inject.service(),
+  indexdb: inject.service(),
   classNames: ['bingo-board'],
   pickingTarget: null,
   _rows: computed('spaces', function() {
@@ -19,11 +20,13 @@ export default Component.extend({
       this.set('pickingTarget', bingoTargetId);
     },
     finishSelection(speakerId) {
+      let target = this.get('pickingTarget');
       this.get('game').makeMove({
         speaker: speakerId,
-        target: this.get('pickingTarget')
+        target
       });
       this.set('pickingTarget', null);
+      this.get('indexdb').saveMove(target, speakerId);
     }
   }
 });

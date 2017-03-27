@@ -1,8 +1,8 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('service:game', 'Unit | Service | game', {
+moduleFor('service:indexdb', 'Unit | Service | indexdb', {
   // Specify the other units that are required for this test.
-  needs: ['service:indexdb']
+  // needs: ['service:foo']
 });
 
 // Replace this with your real tests.
